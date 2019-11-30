@@ -133,7 +133,6 @@ class Agent():
             a__ = (a_, a[:, self.action_size:])
         elif agent_id == 1:
             a__ = (a[:, :self.action_size], a_)
-        
         a_ = torch.cat(a__, dim=1)
             
         Q_targets_next = self.critic_target(s_, a_)
@@ -174,9 +173,7 @@ class Agent():
         # ------ Update Target Networks ------ #
         self.soft_update(self.critic_local, self.critic_target, self.TAU)
         self.soft_update(self.actor_local, self.actor_target, self.TAU)
-        
-        # keep count of steps taken
-        # self.noise.reset()
+
         
     def soft_update(self, local_model, target_model, tau):
         """Soft update model parameters.

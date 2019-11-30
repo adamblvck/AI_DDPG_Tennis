@@ -18,7 +18,7 @@ Environment and goal information:
 - **Rewards**: +0.1 if an agent hits the ball over the net. -0.01 if the agent misses the ball (ball falls on the ground, or bounces out of bounds).
 - **Goal**: Keep the ball in play.
 - **Observation Space**: 24 variables corresponding to position, velocity of the ball and the rackets.
-- **Action Space**: vector with 2 continuous numbers  between [-1,1], corresponding to movement (left/right), and jumping (up/down).
+- **Action Space**: vector with 2 continuous numbers between [-1,1], corresponding respectively to movement (left/right), and jumping (up/down).
 
 
 
@@ -34,11 +34,11 @@ It took a lot of wrestling with hyperparameters and code tuning to make the agen
 
 For a full report on implemention and training details, please see [`./report.md`](./report.md).
 
-Keeping track of choices made when trying to solve any task is vital. Above chart was created by collecting training metadata in an online platform called Weights & Biases. For the full run, progressive hyperparameter tweaks, and model configurations, [check out this project's run data](https://app.wandb.ai/adam_blvck/tennis_ddpg_multi_agent). 
+Keeping track of experiments is important to gain insight and intuition. Above chart was created by collecting training metadata in an online platform called Weights & Biases. For the full run, progressive hyperparameter tweaks, and model configurations, [check out this project's run here](https://app.wandb.ai/adam_blvck/tennis_ddpg_multi_agent). 
 
 ### Solving The Environment
 
-The task is episodic, and in order to solve the environment, your agents must get an average score of +0.5 (over 100 consecutive episodes, after taking the maximum over both agents). Specifically,
+The task is episodic, and in order to solve the environment, the agents had to score an average of +0.5 (over 100 consecutive episodes, after taking the maximum over both agents). Specifically,
 
 - After each episode, we add up the rewards that each agent received (without discounting), to get a score for each agent. This yields 2 (potentially different) scores. We then take the maximum of these 2 scores.
 - This yields a single **score** for each episode.
